@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>FRI - Facial Recognition & Identification</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/icon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Video JS -->
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <!-- face-api script -->
+    <script defer src="dist/face-api.min.js"></script>
+    <!-- Main script -->
+    <script defer src="dist/script.js"></script>
+  </head>
+  <body>
+    <!-- Start your project here-->
+    <!--Main Navigation-->
+    <header>
+      <nav
+        class="navbar fixed-top navbar-expand-lg navbar-dark primary-color scrolling-navbar"
+      >
+        <a class="navbar-brand" href="#"><strong>FRI</strong></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                >Realtime Facial Detection & Identification</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                >Age Estimation & Gender Recognition</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Face Expression Recognition</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!--Main Navigation-->
+
+    <div class="container py-5">
+      <div class="row py-5">
+        <div class="col-lg-6 mx-auto">
+          <!-- Upload image input-->
+          <div
+            class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm"
+          >
+            <input
+              id="upload"
+              type="file"
+              onchange="start(this);"
+              class="form-control border-0"
+            />
+            <label
+              id="upload-label"
+              for="upload"
+              class="font-weight-light text-muted"
+              >Choose file</label
+            >
+            <div class="input-group-append">
+              <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
+                <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i
+                ><small class="text-uppercase font-weight-bold text-muted"
+                  >Choose file</small
+                ></label
+              >
+            </div>
+          </div>
+
+          <!-- Uploaded image area-->
+          <div class="image-area mt-4">
+            <img
+              id="imageResult"
+              src="#"
+              alt=""
+              class="img-fluid shadow-sm mx-auto d-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End your project here-->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Video JS -->
+    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+    <!-- image upload script -->
+    <!-- <script>
+      /*  ==========================================
+    SHOW UPLOADED IMAGE
+* ========================================== */
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $("#imageResult").attr("src", e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $(function () {
+        $("#upload").on("change", function () {
+          readURL(input);
+        });
+      });
+
+      /*  ==========================================
+  SHOW UPLOADED IMAGE NAME
+* ========================================== */
+      var input = document.getElementById("upload");
+      var infoArea = document.getElementById("upload-label");
+
+      input.addEventListener("change", showFileName);
+      function showFileName(event) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = "File name: " + fileName;
+      }
+    </script> -->
+  </body>
+</html>
