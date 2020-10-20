@@ -68,7 +68,9 @@ function loadLabeledImages() {
   return Promise.all(
     labels.map(async (label) => {
       for (let i = 1; i <= 5; i++) {
-        const img = await faceapi.fetchImage();
+        const img = await faceapi.fetchImage(
+          "https://raw.githubusercontent.com/willtrinh/face-recognition/master/${label}/${i}.jpg"
+        );
       }
     })
   );
