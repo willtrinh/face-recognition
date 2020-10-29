@@ -1,8 +1,14 @@
 const imageUpload = document.getElementById("upload");
 Promise.all([
-  faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
-  faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri(
+    "github.com/willtrinh/face-recognition/tree/master/models"
+  ),
+  faceapi.nets.faceLandmark68Net.loadFromUri(
+    "github.com/willtrinh/face-recognition/tree/master/models"
+  ),
+  faceapi.nets.ssdMobilenetv1.loadFromUri(
+    "github.com/willtrinh/face-recognition/tree/master/models"
+  ),
 ]).then(start);
 
 async function start() {
