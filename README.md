@@ -19,5 +19,7 @@ Trained the model using dataset from labeled images to be able to detect and rec
 ## Video Face Tracking
 Real-time face detection & expression tracking
 
+![video-face-tracking](https://raw.githubusercontent.com/willtrinh/face-recognition/master/public/examples/video-face-tracking.gif)
+
 ## Webcam Face Tracking
 Enable webcam to let the application performs real-time face detection & face expression recognition.
