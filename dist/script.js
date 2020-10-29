@@ -1,21 +1,39 @@
 const imageUpload = document.getElementById("upload");
-// load all different models
+const video = document.getElementById("video");
+
+Promise.all([
+  faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
+  faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
+  faceapi.nets.faceExpressionNet.loadFromUri("/models"),
+]).then(startVideo);
+
 Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
   faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
   faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
 ]).then(start);
 
+function startVideo() {}
+
+video.addEventListener("play", () => {
+  console.log("video played");
+});
+
 async function start() {
   const container = document.createElement("div");
   container.style.position = "relative";
   document.body.append(container);
   const labeledFaceDescriptors = await loadLabeledImages();
-  const faceMatcher = new faceapi.FaceMatcher(LabeledFaceDescriptors, 0.6);
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
+  let image;
+  let canvas;
   imageUpload.addEventListener("change", async () => {
-    const image = await faceapi.bufferToImage(imageUpload.files[0]);
-    document.body.append(image);
-    const canvas = faceapi.createCanvasFromMedia(image);
+    if (image) image.remove();
+    if (canvas) canvas.remove();
+    image = await faceapi.bufferToImage(imageUpload.files[0]);
+    container.append(image);
+    canvas = faceapi.createCanvasFromMedia(image);
     container.append(canvas);
     const displaySize = { width: image.width, height: image.height };
     faceapi.matchDimensions(canvas, displaySize);
@@ -37,36 +55,6 @@ async function start() {
   });
 }
 
-// function readURL(input) {
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-
-//     reader.onload = function (e) {
-//       $("#imageResult").attr("src", e.target.result);
-//     };
-//     reader.readAsDataURL(input.files[0]);
-//   }
-// }
-
-// $(function () {
-//   $("#upload").on("change", function () {
-//     readURL(input);
-//   });
-// });
-
-// /*  ==========================================
-// SHOW UPLOADED IMAGE NAME
-// * ========================================== */
-// var input = document.getElementById("upload");
-// var infoArea = document.getElementById("upload-label");
-
-// input.addEventListener("change", showFileName);
-// function showFileName(event) {
-//   var input = event.srcElement;
-//   var fileName = input.files[0].name;
-//   infoArea.textContent = "File name: " + fileName;
-// }
-
 /*  ==========================================
 LOAD LABELED IMAGES
 * ========================================== */
@@ -75,9 +63,10 @@ function loadLabeledImages() {
   const labels = ["Chandler", "Joey", "Monica", "Phoebe", "Rachel", "Ross"];
   return Promise.all(
     labels.map(async (label) => {
+      const descriptions = [];
       for (let i = 1; i <= 5; i++) {
         const img = await faceapi.fetchImage(
-          `https://raw.githubusercontent.com/willtrinh/face-recognition/master/img/labeled_images/${label}/${i}.jpg`
+          `https://raw.githubusercontent.com/willtrinh/face-recognition/master/public/img/labeled_images/${label}/${i}.jpg`
         );
         const detections = await faceapi
           .detectSingleFace(img)

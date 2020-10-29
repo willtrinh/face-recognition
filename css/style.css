@@ -16,45 +16,23 @@
   transform: translateY(-50%);
 }
 
-.image-area {
-  padding: 1rem;
-  position: relative;
-}
-
-/* .image-area::before {
-  content: "Uploaded image result";
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.8rem;
-  z-index: 1;
-} */
-
-.image-area img {
-  z-index: 2;
-  position: relative;
-}
-
 body {
-  min-height: 100vh;
   background-color: #f0f0f0;
 }
 
-/* .file-upload {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-} */
-
 canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
+  height: auto;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 30vw;
+}
+
+img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-left: 30vw;
 }
