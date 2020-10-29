@@ -25,13 +25,28 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <!-- Video JS -->
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <!-- face-api script -->
     <script defer src="dist/face-api.min.js"></script>
     <!-- Main script -->
-    <script defer src="dist/image_script.js"></script>
+    <script defer src="dist/webcam_script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      canvas {
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
     <!-- Start your project here-->
@@ -54,14 +69,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
             <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="webcam_face_tracking.html"
-                >Webcam Face Tracking</a
+                >Webcam Face Tracking<span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
@@ -89,17 +102,8 @@
       <div class="row py-5">
         <div class="col-lg-6 mx-auto">
           <!-- Upload image input-->
-          <input id="upload" type="file" class="form-control border-0" />
           <div class="input-group-append d-flex justify-content-center">
-            <label
-              for="upload"
-              class="btn btn-lg btn-light m-0 rounded-pill px-4"
-            >
-              <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i
-              ><small class="text-uppercase font-weight-bold text-muted"
-                >Choose File</small
-              ></label
-            >
+            <video id="video" width="1280" height="720" autoplay muted></video>
           </div>
         </div>
       </div>
