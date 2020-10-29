@@ -1,13 +1,13 @@
 const imageUpload = document.getElementById("upload");
 Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri(
-    "github.com/willtrinh/face-recognition/tree/master/models"
+    "https://raw.githubusercontent.com/willtrinh/face-recognition/master/models/"
   ),
   faceapi.nets.faceLandmark68Net.loadFromUri(
-    "github.com/willtrinh/face-recognition/tree/master/models"
+    "https://raw.githubusercontent.com/willtrinh/face-recognition/master/models/"
   ),
   faceapi.nets.ssdMobilenetv1.loadFromUri(
-    "github.com/willtrinh/face-recognition/tree/master/models"
+    "https://raw.githubusercontent.com/willtrinh/face-recognition/master/models/"
   ),
 ]).then(start);
 
