@@ -18,21 +18,23 @@
 
 body {
   background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 canvas {
   position: absolute;
   top: 0px;
-  left: 0px;
   height: auto;
   width: 100%;
   max-width: 800px;
-  margin-left: 30vw;
 }
 
 img {
   width: 100%;
   max-width: 800px;
   height: auto;
-  margin-left: 30vw;
 }

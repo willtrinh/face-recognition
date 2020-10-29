@@ -14,6 +14,7 @@ Promise.all([
 async function start() {
   const container = document.createElement("div");
   container.style.position = "relative";
+  container.className = "d-flex justify-content-center pb-5";
   document.body.append(container);
   const labeledFaceDescriptors = await loadLabeledImages();
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
