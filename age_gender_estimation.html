@@ -29,9 +29,9 @@
     <!-- Video JS -->
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <!-- face-api script -->
-    <!-- <script defer src="dist/face-api.min.js"></script> -->
+    <script defer src="dist/face-api.min.js"></script>
     <!-- Main script -->
-    <!-- <script defer src="dist/script.js"></script> -->
+    <script defer src="dist/estimation_script.js"></script>
   </head>
   <body>
     <!-- Start your project here-->
@@ -55,7 +55,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="face_recognition.html"
+                >Face Detection & Identification</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="webcam_face_tracking.html"
@@ -69,7 +71,7 @@
                 ></a
               >
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="face_expression_recognition.html"
                 >Face Expression Recognition</a
               >
@@ -84,7 +86,25 @@
       </nav>
     </header>
     <!--Main Navigation-->
-
+    <div class="container py-5">
+      <div class="row py-5">
+        <div class="col-lg-6 mx-auto">
+          <!-- Upload image input-->
+          <input id="upload" type="file" class="form-control border-0" />
+          <div class="input-group-append d-flex justify-content-center">
+            <label
+              for="upload"
+              class="btn btn-lg btn-light m-0 rounded-pill px-4"
+            >
+              <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i
+              ><small class="text-uppercase font-weight-bold text-muted"
+                >Choose File</small
+              ></label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- End your project here-->
 
     <!-- jQuery -->

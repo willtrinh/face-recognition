@@ -9,7 +9,7 @@ Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri(
     "https://raw.githubusercontent.com/willtrinh/face-recognition/master/models/"
   ),
-  faceapi.nets.faceExpressionNet.loadFromUri(
+  faceapi.nets.ageGenderNet.loadFromUri(
     "https://raw.githubusercontent.com/willtrinh/face-recognition/master/models/"
   ),
   faceapi.nets.ssdMobilenetv1.loadFromUri(
@@ -37,9 +37,16 @@ async function start() {
       .detectAllFaces(image)
       .withFaceLandmarks()
       .withFaceDescriptors()
-      .withFaceExpressions();
+      .withAgeAndGender();
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
     faceapi.draw.drawDetections(canvas, resizedDetections);
-    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+    resizedDetections.forEach((detection, i) => {
+      //   const box = detection.detection.box;
+      const box = resizedDetections[i].detection.box;
+      const drawBox = new faceapi.draw.DrawBox(box, {
+        label: Math.round(detection.age) + " years old " + detection.gender,
+      });
+      drawBox.draw(canvas);
+    });
   });
 }
