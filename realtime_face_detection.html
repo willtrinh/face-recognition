@@ -25,13 +25,28 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <!-- Video JS -->
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <!-- face-api script -->
     <script defer src="dist/face-api.min.js"></script>
     <!-- Main script -->
-    <script defer src="dist/script.js"></script>
+    <script defer src="dist/video_script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      canvas {
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
     <!-- Start your project here-->
@@ -85,7 +100,7 @@
         <div class="col-lg-6 mx-auto">
           <!-- Upload image input-->
           <div class="input-group-append d-flex justify-content-center">
-            <video id="video" width="1280" height="720" controls autoplay muted>
+            <video id="video" width="1280" height="720" controls muted>
               <source src="public/friends.mp4" type="video/mp4" />
             </video>
           </div>
